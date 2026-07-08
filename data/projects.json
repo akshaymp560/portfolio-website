@@ -1,0 +1,34 @@
+{
+  "vascular-phase-net": {
+    "title": "Vascular Phase-Net",
+    "short_desc": "Spatio-Temporal Deepfake Liveness Detection pipeline.",
+    "tech_stack": ["PyTorch", "OpenCV", "MediaPipe"],
+    "problem_summary": "Mitigating bias in physiological AI models by extracting localized ID pulse waves from video input, avoiding talking-induced artifacts.",
+    "full_description": "Built a hybrid neural network fusing a 1D-CNN and a Cross-Attention Transformer Encoder. Optimized training on resource-constrained GPUs using PyTorch Mixed Precision.",
+    "github_link": "https://github.com/akshaymp560/vascular-phase-net"
+  },
+  "continual-learning": {
+    "title": "Continual Learning AI Image Detector",
+    "short_desc": "Continuous MLOps pipeline for AI-generated image detection.",
+    "tech_stack": ["PyTorch", "MLOps", "FastAPI", "Docker"],
+    "problem_summary": "Architected a Human-in-the-Loop (HITL) Active Learning system to automatically intercept and batch predictions for rapid administrator labeling.",
+    "full_description": "Fused Efficient Net for spatial artifacts and DeiT-Tiny Vision Transformers for global inconsistencies. Built an interactive Streamlit frontend with a Dual-Lens Explainability Viewer.",
+    "github_link": "https://github.com/akshaymp560/continual-learning"
+  },
+  "risk-aware-trading": {
+    "title": "Risk-Aware Algorithmic Trading",
+    "short_desc": "High-frequency DRL trading agent using Proximal Policy Optimization (PPO).",
+    "tech_stack": ["PyTorch", "RL", "Pandas"],
+    "problem_summary": "Mitigating catastrophic drawdowns during high-volatility market cycles.",
+    "full_description": "Formulated the trading environment as a Markov Decision Process (MDP) using multi-modal state spaces. Engineered a Reward Shaping Function incorporating a dynamic Risk Penalty.",
+    "github_link": "https://github.com/akshaymp560/trading-agent"
+  },
+  "agrovedha": {
+    "title": "AgroVedha",
+    "short_desc": "Multi-Modal Agro-Climatic Predictive Framework.",
+    "tech_stack": ["TensorFlow", "Scikit-Learn", "IoT"],
+    "problem_summary": "Integrating deep learning for real-time agro-climatic monitoring and predictive analytics.",
+    "full_description": "Designed a dual-model predictive engine implementing LSTM networks for time-series forecasting and Random Forest for multi-class health state classification. Integrated an ESP32-driven hardware layer via Firebase.",
+    "github_link": "https://github.com/akshaymp560/agrovedha"
+  }
+}

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Ambient Background Glow Element -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-zinc-900/40 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex flex-col items-center justify-center relative px-6 pt-32 pb-20">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center w-full max-w-7xl mx-auto mb-16">
+        
+        <!-- Left: Status & Title -->
+        <div class="flex flex-col items-center lg:items-start space-y-6 gs-hero order-2 lg:order-1 text-center lg:text-left">
+            <div class="px-4 py-2 bg-zinc-900/80 text-zinc-300 text-xs tracking-widest uppercase rounded-full border border-zinc-800 flex items-center inline-flex shadow-lg">
+                <span class="relative flex h-2 w-2 mr-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Available to work
+            </div>
+            <h2 class="font-serif text-3xl md:text-4xl leading-snug text-zinc-200">
+                AI Architect & <br> ML Engineer based <br> in India.
+            </h2>
+        </div>
+
+        <!-- Center: Enlarged Photo -->
+        <div class="flex justify-center relative gs-hero order-1 lg:order-2 group">
+            <div class="absolute -inset-4 bg-gradient-to-br from-zinc-800 to-transparent rounded-[3rem] blur-xl opacity-30 group-hover:opacity-50 transition duration-700"></div>
+            <img src="/static/assets/profile/me.jpg" alt="Akshay MP" class="relative w-64 h-80 md:w-80 md:h-[26rem] rounded-[2.5rem] object-cover shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-zinc-800 grayscale hover:grayscale-0 transition duration-700">
+        </div>
+
+        <!-- Right: Tailored Bio -->
+        <div class="flex flex-col items-center lg:items-end space-y-6 gs-hero order-3 lg:order-3 text-center lg:text-right">
+            <p class="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-md">
+                As a Machine Learning specialist, I focus on constructing intelligent, scalable predictive models. I believe that powerful AI begins with pristine data, robust architecture, and a deep respect for real-world application.
+            </p>
+        </div>
+    </div>
+
+    <!-- The Name Text -->
+    <h1 class="text-7xl md:text-[9rem] font-bold tracking-tighter gs-hero text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-600 leading-none pb-4">
+        Akshay MP
+    </h1>
+
+    <!-- Minimalist Scroll Indicator Element -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-3 text-zinc-600 gs-hero">
+        <span class="text-[9px] uppercase tracking-[0.2em] font-medium text-zinc-500">Scroll</span>
+        <div class="w-[1px] h-10 bg-gradient-to-b from-zinc-500 to-transparent"></div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-24 px-6 max-w-6xl mx-auto relative">
+    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-16 tracking-tight text-center gs-reveal">Projects</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+        {% for id, project in projects.items() %}
+        <a href="/project/{{ id }}" class="block group bg-[#0c0c0e] rounded-3xl p-8 border border-zinc-800/60 hover:border-zinc-500 transition-all duration-500 gs-reveal relative shadow-[0_10px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_50px_rgba(255,255,255,0.03)] overflow-hidden">
+            
+            <!-- Subtle internal glow element on hover -->
+            <div class="absolute -top-24 -right-24 w-56 h-56 bg-zinc-800 rounded-full blur-[70px] opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"></div>
+            
+            <h3 class="font-serif text-2xl font-semibold mb-3 text-zinc-100 group-hover:text-white transition relative z-10">{{ project.title }}</h3>
+            <p class="text-zinc-400 mb-8 text-base font-light leading-relaxed relative z-10">{{ project.short_desc }}</p>
+            
+            <div class="flex flex-wrap gap-2 mb-10 relative z-10">
+                {% for tech in project.tech_stack %}
+                <span class="px-3 py-1 bg-black text-zinc-400 text-[10px] font-semibold tracking-widest uppercase rounded-md border border-zinc-800/80">{{ tech }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="flex items-center justify-between mt-auto relative z-10">
+                <span class="text-xs font-semibold tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors">View Project</span>
+                <div class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-white flex items-center justify-center transform group-hover:rotate-[-45deg] group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Elegant Bio & Skills Section -->
+<section id="bio" class="py-24 px-6 max-w-5xl mx-auto gs-reveal relative">
+    
+    <!-- Ambient Bio Glow Element -->
+    <div class="absolute inset-0 bg-zinc-900/10 blur-[100px] -z-10 rounded-full scale-75 pointer-events-none"></div>
+    
+    <div class="bg-zinc-900/30 border border-zinc-800/50 rounded-[3rem] p-10 md:p-16 backdrop-blur-sm shadow-2xl relative z-10">
+        <h2 class="font-serif text-4xl font-bold mb-8 tracking-tight">Bio</h2>
+        
+        <p class="text-xl md:text-2xl text-zinc-300 mb-12 leading-relaxed font-light">
+            Originally from Kasaragod, Kerala, I am a fourth-year B.Tech CSE (AI & ML) student at VIT Bhopal University. My passion lies in architecting multi-modal AI pipelines that bridge the gap between theoretical models and tangible real-world deployment. When I step away from building continuous learning systems, I find my balance in the strategic nuances of cricket and the compelling storytelling of cinema.
+        </p>
+
+        <div class="mb-12">
+            <h3 class="text-sm font-bold text-zinc-500 tracking-widest uppercase mb-6">Skills</h3>
+            <div class="flex flex-wrap gap-3">
+                <!-- Added slight hover interaction to skills -->
+                <span class="px-4 py-2 bg-black text-zinc-300 text-sm rounded-lg border border-zinc-800 hover:border-zinc-500 transition-colors cursor-default">PyTorch</span>
+                <span class="px-4 py-2 bg-black text-zinc-300 text-sm rounded-lg border border-zinc-800 hover:border-zinc-500 transition-colors cursor-default">TensorFlow</span>
+                <span class="px-4 py-2 bg-black text-zinc-300 text-sm rounded-lg border border-zinc-800 hover:border-zinc-500 transition-colors cursor-default">MLOps & DVC</span>
+                <span class="px-4 py-2 bg-black text-zinc-300 text-sm rounded-lg border border-zinc-800 hover:border-zinc-500 transition-colors cursor-default">OpenCV & MediaPipe</span>
+                <span class="px-4 py-2 bg-black text-zinc-300 text-sm rounded-lg border border-zinc-800 hover:border-zinc-500 transition-colors cursor-default">Python & FastAPI</span>
+                <span class="px-4 py-2 bg-black text-zinc-300 text-sm rounded-lg border border-zinc-800 hover:border-zinc-500 transition-colors cursor-default">LSTM & Vision Transformers</span>
+            </div>
+        </div>
+
+        <a href="/static/assets/Akshaymp_cv.pdf" download="Akshaymp_cv.pdf" class="inline-flex items-center text-sm font-semibold tracking-widest uppercase text-white hover:text-zinc-400 transition-colors group">
+            Download Resume
+            <svg class="w-5 h-5 ml-3 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Refined Connect Section -->
+<section id="contact" class="py-32 px-6 max-w-3xl mx-auto gs-reveal">
+    <h2 class="font-serif text-5xl md:text-6xl font-bold mb-16 text-center tracking-tight">Connect.</h2>
+    <form action="YOUR_FORM_LINK_HERE" method="POST" class="space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <input type="text" name="name" placeholder="Your Name" required class="w-full bg-transparent border-b border-zinc-700 px-2 py-4 text-lg text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors duration-300">
+            <input type="email" name="email" placeholder="Your Email" required class="w-full bg-transparent border-b border-zinc-700 px-2 py-4 text-lg text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors duration-300">
+        </div>
+        <textarea name="message" rows="3" placeholder="Message" required class="w-full bg-transparent border-b border-zinc-700 px-2 py-4 text-lg text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors duration-300 resize-none"></textarea>
+        
+        <div class="text-center pt-8">
+            <button type="submit" class="inline-flex items-center justify-center bg-white text-black font-semibold text-sm tracking-widest uppercase px-12 py-5 rounded-full hover:bg-zinc-200 transition-all duration-300 hover:scale-105">
+                Send Message
+            </button>
+        </div>
+    </form>
+    
+    <div class="mt-24 flex justify-center space-x-12 text-zinc-500">
+        <a href="https://linkedin.com/in/akshaymp08" target="_blank" class="hover:text-white transition-colors duration-300 transform hover:scale-110">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://github.com/akshaymp560" target="_blank" class="hover:text-white transition-colors duration-300 transform hover:scale-110">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="mailto:akshaymp560@gmail.com" class="hover:text-white transition-colors duration-300 transform hover:scale-110">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        </a>
+    </div>
+</section>
+{% endblock %}

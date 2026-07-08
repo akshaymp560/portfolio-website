@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen pt-40 pb-32 px-6 max-w-4xl mx-auto selection:bg-zinc-800">
+    
+    <a href="/#projects" class="inline-flex items-center text-zinc-500 hover:text-white mb-12 transition-colors duration-300 font-medium text-sm tracking-wide uppercase">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Return to Portfolio
+    </a>
+    
+    <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tighter text-white gs-reveal">{{ project.title }}</h1>
+    
+    <div class="flex flex-wrap gap-3 mb-16 gs-reveal border-b border-zinc-900 pb-12">
+        {% for tech in project.tech_stack %}
+        <span class="px-5 py-2 bg-zinc-900 text-zinc-300 text-xs font-semibold tracking-wider uppercase rounded-full border border-zinc-800">{{ tech }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="space-y-16 text-xl text-zinc-300 leading-relaxed font-light gs-reveal">
+        <div class="relative pl-8 border-l border-zinc-800">
+            <h3 class="text-sm font-bold text-zinc-500 tracking-widest uppercase mb-4">01. Architecture Problem</h3>
+            <p class="text-white">{{ project.problem_summary }}</p>
+        </div>
+        
+        <div class="relative pl-8 border-l border-zinc-800">
+            <h3 class="text-sm font-bold text-zinc-500 tracking-widest uppercase mb-4">02. Technical Execution</h3>
+            <p>{{ project.full_description }}</p>
+        </div>
+    </div>
+
+    <div class="mt-24 gs-reveal pt-12 border-t border-zinc-900">
+        <a href="{{ project.github_link }}" target="_blank" class="inline-flex items-center justify-center bg-white text-black font-semibold px-10 py-5 rounded-full hover:bg-zinc-200 transition-all duration-300 transform hover:scale-105">
+            Inspect Repository
+            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+    </div>
+</div>
+{% endblock %}
